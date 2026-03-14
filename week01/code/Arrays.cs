@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 public static class Arrays
 {
     /// <summary>
@@ -13,7 +15,19 @@ public static class Arrays
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // step 1: create a new array
+        // This array will store multiples of the number
+        double[] result = new double[length];
+
+        // step 2: loop from index 0 up to length -1
+        //Each index will hold each one multiple of the number
+        for (int i = 0; i < length; i++)
+        {
+            // step 3: calculate the multiples
+            result[i] = number * (i + 1);
+        }
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +43,25 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+
+        // Step 1: Get the total number of elements in the list
+        int count = data.Count;
+
+        // Step 2: Get the last 'amount' elements from the list.
+        List<int> rightPart = data.GetRange(count - amount, amount);
+
+        // Step 3: Get the remaining elements from the beginning of the list
+        List<int> leftPart = data.GetRange(0, count - amount);
+
+        // Step 4: Clear the original list so we can rebuild it
+        data.Clear();
+
+        // Step 5: Add the elements that were originally at the end
+        data.AddRange(rightPart);
+
+        // Step 6: Add the elements that were originally at the beginning
+        data.AddRange(leftPart);
+
     }
 }
