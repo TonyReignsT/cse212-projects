@@ -13,7 +13,8 @@ public class PersonQueue
     /// <param name="person">The person to add</param>
     public void Enqueue(Person person)
     {
-        _queue.Insert(0, person);
+        // _queue.Insert(0, person);
+        _queue.Add(person); // Fixed the above error. - The bug caused every test to fail because the queue was behaving like a stack (last in, first out) instead of a proper FIFO queue.
     }
 
     public Person Dequeue()
